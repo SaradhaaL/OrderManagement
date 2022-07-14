@@ -1,0 +1,11 @@
+@import '../../styles/scssVar.scss';
+.navbar-brand,
+.navbar-toggler-icon {
+    color: $blue;
+}
+.dropdown-menu {
+    margin-left: -5rem !important;
+}
+.dropdown-menu li {
+    @include font(13px,400);
+}

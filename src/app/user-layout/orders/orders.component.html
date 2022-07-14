@@ -1,0 +1,130 @@
+<div class="main-layout m-sm-4 m-2">
+  <div class="row my-3 ">
+    <div id="header" class="mx-3 col-8">Orders List</div>
+    <div class="col pull-right pe-4">
+      <button class="btn primary-btn pull-right" (click)="Order(orders)"> New Order
+      </button>
+    </div>
+  </div>
+  <div class="card-body table-responsive">
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th scope="col">Order Id</th>
+          <th scope="col">Due Date</th>
+          <th scope="col">Customer</th>
+          <th scope="col">Address</th>
+          <th scope="col">Phone Number</th>
+          <th scope="col">Total Amount</th>
+          <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let order of ordersList">
+          <td>
+            {{order.id}}
+          </td>
+          <td>
+            {{order.dueDate | date: 'dd-MMM-yy'}}
+          </td>
+          <td>
+            {{order.customer}}
+          </td>
+          <td>
+            {{order.address}}
+          </td>
+          <td>
+            {{order.phoneNum}}
+          </td>
+          <td>
+            {{order.total | currency:"INR":"symbol" }}
+          </td>
+          <td>
+           <button class="btn" (click)="Order(orders,true,order)"> <i class="fa fa-pencil" aria-hidden="true"></i></button>
+           <button class="btn" (click)="showSwal('delete',order)"> <i class="fa fa-trash-o" aria-hidden="true"></i></button>
+           
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<ng-template #orders id="orders" let-c="close" let-d="dismiss">
+  <div class="modal-body mx-3">
+    <div class="row">
+      <div class="main-header float-left mt-2 col-9">
+        <span *ngIf="!editFlag">Add</span>
+        <span *ngIf="editFlag">Edit</span> Order</div>
+      <div class="pull-right col-3 ">
+        <button type="button" class="btn close pull-right" aria-label="Close" (click)="onCancel()">
+          <span aria-hidden="true"><i class="fa fa-times"></i></span>
+        </button>
+      </div>
+    </div>
+    <div class="mt-4">
+      <form [formGroup]="orderForm">
+        <div class="row">
+          <div *ngIf="!editFlag" class="form-floating mb-3 col-sm-6">
+            <input type="text" class="form-control" id="floatingID" placeholder="ORD2"
+            formControlName="id">
+            <label class="ps-3" for="floatingID">Order ID</label>
+            <div *ngIf="submitted && order.id.errors" class="error-message">
+              <div *ngIf="order.id.errors.required">This field is required</div>
+            </div>
+          </div>
+          <div class="form-floating mb-3 col-sm-6">
+            <input type="text" class="form-control"  id="floatingDate" placeholder="14-07-2022"
+            bsDatepicker [bsConfig]="{ dateInputFormat: 'DD-MMM-YYYY',adaptivePosition: true }"
+            formControlName="dueDate" >
+            <label class="ps-3" for="floatingDate">Due Date</label>
+            <div *ngIf="submitted && order.dueDate.errors" class="error-message">
+              <div *ngIf="order.dueDate.errors.required">This field is required</div>
+            </div>
+          </div>
+          <div class="form-floating mb-3 col-sm-6">
+            <input type="text" class="form-control" id="floatingCustomer" placeholder="Customer Name"
+             formControlName="customer">
+            <label class="ps-3" for="floatingCustomer">Customer Name</label>
+            <div *ngIf="submitted && order.customer.errors" class="error-message">
+              <div *ngIf="order.customer.errors.required">This field is required</div>
+            </div>
+          </div>
+          <div class="form-floating mb-3 col-sm-6">
+            <input type="number" class="form-control" id="floatingNumber" placeholder="Phone Number"
+             formControlName="phoneNum">
+            <label class="ps-3" for="floatingNumber">Phone Number</label>
+            <div *ngIf="submitted && order.phoneNum.errors" class="error-message">
+              <div *ngIf="order.phoneNum.errors.required">This field is required</div>
+            </div>
+          </div>
+          <div class="form-floating mb-3 col-sm-6">
+            <input type="text" class="form-control" id="floatingAddress" placeholder="Address"
+             formControlName="address">
+            <label class="ps-3" for="floatingAddress">Address</label>
+            <div *ngIf="submitted && order.address.errors" class="error-message">
+              <div *ngIf="order.address.errors.required">This field is required</div>
+            </div>
+          </div>
+          <div class="form-floating mb-3 col-sm-6">
+            <input type="number" class="form-control" id="floatingTotal" placeholder="Total Amount"
+             formControlName="total">
+            <label class="ps-3" for="floatingTotal">Total Amount</label>
+            <div *ngIf="submitted && order.total.errors" class="error-message">
+              <div *ngIf="order.total.errors.required">This field is required</div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div class="my-3 pull-right">
+        <button type="button" class="btn primary-outline-btn" (click)="onCancel()">Cancel</button>
+        <button *ngIf="!editFlag" type="button" class="btn primary-btn px-3"
+          (click)="OrderSubmit()">Add</button>
+        <button *ngIf="editFlag" type="button" class="btn primary-btn px-3"
+          (click)="OrderSubmit()">Edit</button>
+      </div>
+    </div>
+  </div>
+</ng-template>

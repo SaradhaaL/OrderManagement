@@ -1,0 +1,13 @@
+$light-grey: #e9e9e9;
+$dark-grey: #747474;
+$blue: #144da8;
+$black: #121212;
+
+@mixin font($size, $weight) {
+  font-size: $size;
+  font-weight: $weight;
+}
+@mixin colors( $clr,$bgclr) {
+  background-color: $bgclr;
+  color: $clr;
+}

@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <span class="navbar-brand ms-4">Logo</span>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon">
+            <i class="fa fa-bars" aria-hidden="true"></i>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        
+        <div class="pull-right ms-auto me-4" role="search">
+            <ul class="navbar-nav ms-auto me-3 mb-2 mb-lg-0">
+          
+                <li class="nav-item dropdown">
+                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    {{profileDetails.Username}}
+                  </a>
+                  <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <li><a class="dropdown-item" (click)="onLogout()">Logout</a></li>
+                  </ul>
+                </li>
+                
+              </ul>
+            </div>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>

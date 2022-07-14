@@ -1,0 +1,57 @@
+@import '../../../styles/scssVar.scss';
+
+#header {
+    color: $black;
+    @include font(18px, 600);
+}
+.table-bordered {
+    border-collapse: separate;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 5px;
+}
+.table-bordered tbody tr {
+    padding: 20px !important;
+}
+.table-bordered thead tr th {
+    border: none !important;
+    color: #212529;
+    opacity: 0.45;
+    @include font(12px, 600);
+    padding: 0.5rem;
+}
+.table-header {
+    font-size: 22px;
+    font-weight: 600;
+    color: #111111;
+    padding-left: 0rem !important;
+}
+
+.table-bordered tbody tr td {
+    border-right: none;
+    border-left: none;
+    border-top: 1px solid;
+    border-bottom: none;
+    border-color: rgba(0, 0, 0, 0.125) !important;
+    width:150px;
+    @include font(12px, 600);
+}
+.table-bordered tbody tr td button {
+    @include font(12px, 600);
+
+}
+.card-body.table-responsive.reports-section {
+  padding-left: 2.5rem !important;
+  padding-right: 2.5rem !important
+}
+.table-bordered th, .table-bordered td {
+    vertical-align: middle;
+}
+
+
+// icons
+.fa.fa-pencil {
+    color: $dark-grey;
+}
+.fa.fa-trash-o {
+    color: #dc3545;
+}

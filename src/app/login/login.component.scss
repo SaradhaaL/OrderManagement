@@ -1,0 +1,18 @@
+@import '../../styles/scssVar.scss';
+
+
+.main-layout {
+  height: 100vh;
+  background-color: $light-grey;
+  display: flex;
+}
+
+.form-group label {
+  color: $black;
+  @include font(14px, 600);
+}
+
+.form-check label {
+    color: $dark-grey;
+    @include font(12px,600);
+}

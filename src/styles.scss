@@ -1,1 +1,45 @@
 /* You can add global styles to this file, and also import other style files */
+@import './styles/scssVar.scss';
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+@import '../node_modules/ngx-bootstrap/datepicker/bs-datepicker.css';
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+
+}
+
+// buttons
+.primary-btn {
+  background-color: $blue;
+  color: white;
+  border-radius: 5px;
+  @include font(12px, 600);
+}
+.primary-btn:hover {
+  @include colors(#ffffff, #002F67);
+  box-shadow: 2px 2px 2px rgba(90, 90, 90, 0.4);
+  transform: scale(1.01);
+}
+
+// Error messages
+.error-message {
+  font-size: 80%;
+  color: #dc3545;
+}
+
+// Popups
+.alert-login-button {
+  background-color: $blue !important;
+  color: #ffffff !important;
+  border-radius: 5px;
+}
+
+.alert-cancel-button {
+  color: $blue;
+}
+
+

@@ -1,0 +1,25 @@
+[{
+    "id": "ORD1",
+    "dueDate": "Wed Jul 13 2022 19:49:12 GMT+0530 (India Standard Time)",
+    "customer": "Saradhaa",
+    "address": "No 77, Anna Salai, Chennai",
+    "phoneNum": "+917654321",
+    "total": 200
+  },
+  {
+    "id": "ORD2",
+    "dueDate": "Wed Jul 11 2022 19:49:12 GMT+0530 (India Standard Time)",
+    "customer": "Yogesh",
+    "address": "No 111, Gandi Salai, Chennai",
+    "phoneNum": "+9145654321",
+    "total": 400
+  },
+  {
+    "id": "ORD3",
+    "dueDate": "Wed Jul 17 2022 19:49:12 GMT+0530 (India Standard Time)",
+    "customer": "Abi",
+    "address": "No 12, Anna Salai, Chennai",
+    "phoneNum": "+919754621",
+    "total": 250
+  }
+]

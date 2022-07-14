@@ -1,0 +1,38 @@
+<div class="main-layout row mx-0">
+  <div class="card m-sm-auto m-2 col-sm-5">
+    <div class="card-body">
+      <form [formGroup]="loginForm">
+        <div class="form-group my-3">
+          <input type="text" class="form-control" formControlName="Username" id="exampleInputName1"
+            aria-describedby="nameHelp" placeholder="Username">
+          <div *ngIf="submitted && login.Username.errors" class="error-message">
+            <div *ngIf="login.Username.errors.required">Username is required</div>
+          </div>
+        </div>
+        <div class="form-group my-3">
+          <input type="email" class="form-control" formControlName="EmailID" id="exampleInputEmail1"
+            aria-describedby="emailHelp" placeholder="Email ID">
+          <div *ngIf="submitted && login.EmailID.errors" class="error-message">
+            <div *ngIf="login.EmailID.errors.required">Email ID is required</div>
+            <div *ngIf="login.EmailID.errors.email">Invalid Email ID</div>
+          </div>
+        </div>
+        <div class="form-group my-3">
+          <input type="password" class="form-control" id="exampleInputPassword1" formControlName="Password"
+            placeholder="Password">
+          <div *ngIf="submitted && login.Password.errors" class="error-message">
+            <div *ngIf="login.Password.errors.required">Password is required</div>
+            <div *ngIf="login.Password.errors.minlength">Minimum of 8 characters is required</div>
+          </div>
+        </div>
+        <div class="form-check my-3">
+          <input type="checkbox" class="form-check-input" id="exampleCheck1" formControlName="RememberMe">
+          <label class="form-check-label" for="exampleCheck1">Remember Me</label>
+        </div>
+        <div class="d-grid gap-2 my-4">
+          <button type="submit" class="btn primary-btn pull-right" (click)="onFormSubmit()">Login</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
